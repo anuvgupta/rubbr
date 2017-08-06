@@ -19,7 +19,14 @@
                 background-color: #111;
                 overflow: hidden;
             }
-            
+            a {
+                text-decoration: none;
+                color: rgba(127, 196, 111, 0.72);
+                transition: color 0.15s ease;
+            }
+            a:hover {
+                color: rgba(127, 196, 111, 0.95);
+            }
         </style>
         <script type = 'text/javascript' src = 'js/jquery-1.12.4.min.js'></script>
         <script type = 'text/javascript' src = 'js/pocket.js'></script>
@@ -28,15 +35,10 @@
     </head>
     <body>
         <!-- rubbr.ml -->
-        <!-- <div id = 'loading' style = 'position: absolute; top: 0; left; 0; width: 100%; height: 100%; display: table; text-align: center; opacity: 1; transition: opacity 0.1s ease;'>
+        <div id = 'loading' style = 'position: absolute; top: 0; left; 0; width: 100%; height: 100%; display: table; text-align: center; opacity: 1; transition: opacity 0.1s ease;'>
             <div style = 'display: table-cell; vertical-align: middle; margin: 0 auto;'>
-                <img src = 'img/logo.png' id = 'logo' style = 'width: 45%; max-width: 120px; opacity: 1; transition: opacity 0.5s ease;'/>
+                <img src = 'img/loading.svg' id = 'loadingimg' style = 'width: 45%; max-width: 160px; opacity: 1; transition: opacity 0.5s ease;'/>
             </div>
-            <script>
-                setTimeout(function () {
-                    document.getElementById('logo').style.opacity = 0.05;
-                }, 100);
-            </script>
-        </div> -->
+        </div>
     </body>
 </html>

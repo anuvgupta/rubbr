@@ -63,6 +63,7 @@ app
     canvas canvas
         css
             background-color #151515
+            cursor crosshair
         @query window width != 0
             {
                 block.data({
@@ -205,6 +206,7 @@ app
                 border-radius 2px
                 padding 6px 20px 10px
                 transition background-color 0.3s ease
+                text-align left
             text title
                 val leaderboard
                 css
@@ -220,6 +222,7 @@ app
                 css
                     color #ddd
                     font-size 16px
+                    text-align left
             :display
                 {
                     var rankings = data.rankings;
@@ -243,7 +246,7 @@ app
         div div
             css
                 width 400px
-                min-height 415px
+                min-height 400px
                 height auto
                 background-color #1c1c1c
                 border-radius 12px
@@ -294,6 +297,10 @@ app
                     :mouseout
                         css
                             opacity 0.6
+                    :click
+                        {
+                            app.block.child('modal').on('show');
+                        }
             input username
                 placeholder username
                 css
@@ -343,9 +350,11 @@ app
                         opacity 0.82
                 :click
                     {
-                        var val = block.sibling('username').node().value;
-                        if (!Block.is.unset(val) && Block.is.str(val) && val.trim() != '') {
-                            app.pocket.send('login', val);
+                        if (app.pocket.online()) {
+                            var val = block.sibling('username').node().value;
+                            if (!Block.is.unset(val) && Block.is.str(val) && val.trim() != '') {
+                                app.pocket.send('login', val, false);
+                            }
                         }
                     }
             div message
@@ -371,3 +380,290 @@ app
                 :hide
                     css
                         opacity 0
+        :msg
+            {
+                block.child('div/message/text').html('').html(data.msg);
+            }
+    block dead
+        css
+            top 0
+            left 0
+            right 0
+            bottom 0
+            position absolute
+            display none
+        :msg
+            {
+                block.child('div/message').html('').html(data.msg);
+            }
+        div div
+            css
+                width 400px
+                min-height 320px
+                height auto
+                background-color #1c1c1c
+                border-radius 12px
+                margin 0 auto
+                padding-top 40px
+            text title
+                val DEAD
+                css
+                    color #ddd
+                    font-size 70px
+            div spacer
+                css
+                    height 20px
+            text message
+                val you ran out of health
+                css
+                    color #ddd
+                    font-size 20px
+            block rejoin
+                text text
+                    val play again
+                    css
+                        color #eee
+                        font-size 23px
+                css
+                    text-align center
+                    height 58px
+                    width 252px
+                    margin 35px auto 5px
+                    border-radius 5px
+                    opacity 0.82
+                    background-color rgb(70, 143, 72)
+                    transition background-color 0.2s ease, opacity 0.2s ease
+                    cursor pointer
+                :mouseover
+                    css
+                        background-color rgb(70, 143, 72)
+                        opacity 0.95
+                :mouseout
+                    css
+                        background-color rgb(70, 143, 72)
+                        opacity 0.82
+                :click
+                    {
+                        if (app.pocket.online()) {
+                            var val = app.objects.player.n;
+                            if (!Block.is.unset(val) && Block.is.str(val) && val.trim() != '') {
+                                app.pocket.send('login', val, true);
+                            }
+                        }
+                    }
+    block modal
+        css
+            position fixed
+            top 0
+            bottom 0
+            left 0
+            right 0
+            z-index 5
+            display none
+            opacity 0
+            background-color rgba(20, 20, 20, 0.6)
+            transition opacity 0.3s ease
+        :click
+            {
+                block.on('hide');
+            }
+        :hide
+            {
+                block.css('opacity', '0');
+                setTimeout(function () {
+                    block.css('display', 'none');
+                }, 300);
+            }
+        :show
+            {
+                block.css('display', 'table');
+                setTimeout(function () {
+                    block.css('opacity', '1');
+                }, 10);
+            }
+        div help
+            css
+                margin 0 auto
+                border-radius 7px
+                height 75%
+                width 90%
+                position relative
+                max-width 530px
+                max-height 650px
+                background-color #1c1c1c
+                border-bottom 15px solid #1c1c1c
+                border-top 5px solid #1c1c1c
+                overflow-y scroll
+                -webkit-overflow-scrolling touch
+            @query window width != 0
+                {
+                    var height = 0.75 * window.innerHeight;
+                    if (height > 650) height = 650;
+                    block.css('height', height + 'px');
+                }
+            :click
+                {
+                    event.stopPropagation();
+                }
+            div topBar
+                css
+                    width 100%
+                    height 15px
+                    position relative
+                block leftArrow
+                    css
+                        width 50px
+                        height 100%
+                        position absolute
+                        top 14px
+                        left 30px
+                        opacity 0.5
+                        transition opacity 0.2s
+                        cursor pointer
+                    image img
+                        height 36px
+                        width 46px
+                        src img/arrow.png
+                    :mouseover
+                        css
+                            opacity 0.75
+                    :mouseout
+                        css
+                            opacity 0.5
+                    :click
+                        {
+                            block.parent(2).on('hide');
+                        }
+            div contentWrap
+                css
+                    width 100%
+                    background-color #1c1c1c
+                div content
+                    css
+                        width 90%
+                        margin 0 auto
+                        padding 0
+                        text-align left
+                        background-color #1c1c1c
+                    !title
+                        init
+                            {
+                                return Block('div')
+                                    .__add(Block('text', 1)
+                                        .css({
+                                            fontSize: 'inherit',
+                                            // fontWeight: '800',
+                                            margin: '4px 0',
+                                            color: '#bbb'
+                                        })
+                                    )
+                                    .css({
+                                        borderBottom: '1px solid #C4C4C4',
+                                        textAlign: 'right',
+                                        padding: '0 20px 0 12px',
+                                        fontSize: '25px'
+                                    })
+                                ;
+                            }
+                        load
+                            {
+                                data('val', function (val) {
+                                    block.__child('text').html('').data(val);
+                                });
+                            }
+                    !paragraph
+                        init
+                            {
+                                return Block('div')
+                                    .__add(Block('text', 1)
+                                        .css({
+                                            fontSize: '16px',
+                                            color: '#999'
+                                        })
+                                    )
+                                    .css({
+                                        textAlign: 'left',
+                                        padding: '0 12px 0 12px',
+                                        margin: '4px 0 10px 0'
+                                    })
+                                ;
+                            }
+                        load
+                            {
+                                data('val', function (val) {
+                                    block.__child('text').html('').data(val);
+                                });
+                                data('html', function (html) {
+                                    block.__child('text').html(html);
+                                });
+                            }
+                    title t1
+                        val rubbr
+                        css
+                            font-size 35px
+                    paragraph p1
+                        html
+                            `
+                                <span style = 'font-weight: bold; font-size: 17px;'>rubbr</span> is an online multiplayer game with cars and... well basically <a href = 'http://agar.io'>agar.io</a> with cars.
+                            `
+                    title t2
+                        val instructions
+                    paragraph p2
+                        html
+                            `
+                                <ol style = 'margin: 0; line-height: 19px; padding-left: 12px;'>
+                                    <li><b>Name</b> - type a name (alphanumeric) and hit join - you will be assigned a color</li>
+                                    <li><b>Controls</b> - move the mouse around to move your car in different directions and at varying speeds
+                                        <ol type = 'a'>
+                                            <li>If this doesn't work, click on the grid to focus your cursor - it should turn into a crosshair</li>
+                                            <li>Hit space to boost</li>
+                                        </ol>
+                                    </li>
+                                    <li><b>Money</b> - move around and collect money, you will need this for boosts
+                                        <ol type = 'a'>
+                                            <li>Boosts cost $20 each</li>
+                                        </ol>
+                                    </li>
+                                    <li><b>Health</b> - you have 100% health and if you run out, game over
+                                        <ol type = 'a'>
+                                            <li>If you are low on health, search for health packs (white circles with a red cross) to gain back some health</li>
+                                            <li>Or just wait in the corner, your health regenerates slowly by itself</li>
+                                        </ol>
+                                    </li>
+                                    <li><b>Rankings</b> - our place in the leaderboard (only top 5 are shown) is determined by the number of kills you have
+                                        <ol type = 'a'>
+                                            <li><b>Boosts</b> - To get a kill, you must boost into another player. To do so, either go through one of the nitro gates (big green hexagons) for a free boost or collect $20 and hit the space bar (every non-nitro-gate boost costs $20).</li>
+                                            <li><b>Kills</b> - Once you boost into a player (who is not boosting) you will get 1 kill and they will lose 25% health, but they will become invulnerable for a couple seconds. If you boost into a player low on health and they die after your hit, you get 2 kills rather than one.</li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            `
+                    title t3
+                        val inspiration
+                    paragraph p3
+                        html
+                            `
+                                At an internship in 2016, kids at our workshop were obsessed with the online games <a href = 'http://agar.io'>agar.io</a>, <a href = 'http://slither.io'>slither.io</a>, and even <a href = 'http://diep.io'>diep.io</a>. So, my friend and I decided to make the "next big .io game," and decided to appeal to gamers' appreciation for crashing cars and feeling like they're gaining money. And thus, the idea for <b>rubbr</b> was born. He started making it by changing the mechanics and graphics of an agar clone, so I challenged him - I would make the entire thing from scratch. So while he finished his version in two weeks, I decided not to use an agar clone, and not even use Node.js. That summer I created <a href = 'https://github.com/anuvgupta/pocketjs'>pocketjs</a>, my own PHP WebSocket implementation. Meanwhile, we put his version on Heroku, and you can play it at <a href = 'http://rubbr.io'>rubbr.io</a> if it's still up. This summer, I decided to go back and use pocketjs to make my own version of rubbr; it's a little different, but you can check it out at <a href = 'http://rubbr.anuv.me'>rubbr.anuv.me</a> to play. I'll move it to <a href = 'http://rubbr.ml'>rubbr.ml</a> if I ever get that domain back.
+                            `
+                    title t4
+                        val code
+                    paragraph p4
+                        html
+                            `
+                                <b>rubbr</b> uses JavaScript WebSockets; the WebSocket server uses my own PHP WebSocket server library, pocketjs.
+                                The code is located on <a href = 'http://github.com/anuvgupta/rubbr' target = '_blank'>GitHub</a>.<br/><br/>
+                                <b>Libraries Used</b>:<br/>
+                                <ul style = 'margin: 0; line-height: 19px;'>
+                                    <li><a href = 'https://jquery.com' target = '_blank'>jQuery</a> - v1.12.4 - chessboard.js support</li>
+                                    <li><a href = 'https://github.com/anuvgupta/block.js' target = '_blank'>block.js</a> - v3.0 - UI development and design</li>
+                                    <li><a href = 'https://github.com/anuvgupta/pocketjs' target = '_blank'>pocketjs</a> - v1.1 - WebSocket server</li>
+                                </ul>
+                            `
+                    title t5
+                        val author
+                    paragraph p5
+                        html
+                            `
+                                The creator of rubbr is <span style = 'font-weight: bold; font-size: 17px;'>Anuv Gupta</span>.
+                                You can check out his website at <a href = 'http://anuv.me'>anuv.me</a> and his other projects on his <a href = 'http://github.com/anuvgupta'>GitHub</a>.
+                            `

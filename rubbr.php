@@ -4,7 +4,7 @@ include('pocket.php');
 $ip = $argv[2];
 $port = $argv[3];
 $pocket = new Pocket($ip, $port, 20, 50);
-$pocket->setOpt('kick-bad-events', false);
+$pocket->setOpt('kick-bad-data', false);
 
 $users = [];
 $money = [];
@@ -24,8 +24,8 @@ $defaults = [
         'w' => 3000
     ],
     'player' => [
-        'h' => 90,
-        'w' => 60,
+        'h' => 135, // 90
+        'w' => 90, // 60
         'x' => 0,
         'y' => 0,
         'money' => 0,
@@ -98,7 +98,8 @@ function summarizeMap() {
                 'd' => $user['v']['d']
             ],
             'i' => $user['invulnerable'],
-            'n' => $user['name']
+            'n' => $user['name'],
+            'c' => $user['color']
         ];
     }
     foreach ($money as $m => $bill) {
@@ -162,6 +163,12 @@ function randID($length = 10) {
     for ($i = 0; $i < $length; $i++)
         $key .= $chars[rand(0, strlen($chars) - 1)];
     return $key;
+}
+
+function randColor() {
+    // $colors = [ 'red', 'green', 'blue', 'purple', 'yellow', 'white', 'black', 'orange' ];
+    $colors = [ 'red', 'green', 'blue', 'purple', 'yellow', 'black', 'orange' ];
+    return $colors[rand(0, count($colors) - 1)];
 }
 
 $pocket->onConn(function ($id) use (&$pocket) {
@@ -308,16 +315,18 @@ $pocket->onRun(function () use (&$pocket, &$users, &$money, &$rankings, &$gates,
                     if ($user['v']['m'] > $user2['v']['m']) {
                         $f = $u; // the faster one is favored
                         $s = $u2; // the slower one is pushed
-                    } else {
+                    } else if ($user2['v']['m'] > $user['v']['m']) {
                         $f = $u2;
                         $s = $u;
-                    }
+                    } else continue;
                     $magnitude = $users[$f]['v']['m'];
-                    $passed = $time - $users[$f]['v']['lastTimestamp'];
+                    // use the timestamp of u2, because u1 has just been moved in the outer loop and thus its timestamp has just been updated
+                    $passed = $time - $users[$u2]['v']['lastTimestamp'];
                     $dx = ($magnitude * sin($users[$f]['v']['d']) / -10) / $defaults['gameInterval'] * $passed;
                     $dy = ($magnitude * cos($users[$f]['v']['d']) / 10) / $defaults['gameInterval'] * $passed;
                     $users[$s]['x'] += $dx * $defaults['collisions']['bounceFactor'];
                     $users[$s]['y'] += $dy * $defaults['collisions']['bounceFactor'];
+                    $users[$s]['v']['lastTimestamp'] = $time;
                     $pocket->log("regular collision between users *$f* and $s");
                 }
             }
@@ -373,12 +382,13 @@ $pocket->onRun(function () use (&$pocket, &$users, &$money, &$rankings, &$gates,
     }
 });
 
-$pocket->bind('login', function ($username, $id) use (&$pocket, &$users, $defaults) {
+$pocket->bind('login', function ($username, $rejoin, $id) use (&$pocket, &$users, $defaults) {
     if (ctype_alnum($username)) {
         $users[$id] = [
             'id' => $id,
             'name' => $username,
             'key' => randID(),
+            'color' => randColor(),
             'x' => $defaults['player']['x'],
             'y' => $defaults['player']['y'],
             'money' => $defaults['player']['money'],
@@ -397,8 +407,10 @@ $pocket->bind('login', function ($username, $id) use (&$pocket, &$users, $defaul
                 ]
             ]
         ];
-        $pocket->send('init', $id, $id, json_encode($defaults));
-    } else $pocket->send('init', $id, false, false);
+        $pocket->log("user[$id] is $username");
+        if ($rejoin) $pocket->send('rejoin', $id);
+        else $pocket->send('init', $id, $id, "$username", $users[$id]['color'], json_encode($defaults));
+    } else $pocket->send('init', $id, false, false, false, false);
 });
 $pocket->bind('sync', function ($m, $d, $id) use (&$pocket, &$users) {
     if ($m > 100) $m = 100;
