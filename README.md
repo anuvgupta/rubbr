@@ -1,3 +1,3 @@
-# chessroom.ml - pages
-Project website for [firebase chess](https://github.com/anuvgupta/chessroom.ml)  
-*This site simply redirects to [chessroom.ml](http://chessroom.ml)*
+# rubbr - pages
+Project website for [rubbr](https://github.com/anuvgupta/rubbr)  
+*This site simply redirects to [rubbr.anuv.me](http://rubbr.anuv.me)*
