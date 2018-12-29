@@ -654,7 +654,7 @@ app
                             `
                                 <b>rubbr</b> uses JavaScript WebSockets; the WebSocket server used to use my own PHP WebSocket server library, pocketjs, but now uses socket.io.
                                 The code is located on <a href = 'http://github.com/anuvgupta/rubbr' target = '_blank'>GitHub</a>.<br/><br/>
-                                <b>Extermanl Resources Used</b>:<br/>
+                                <b>External Resources Used</b>:<br/>
                                 <ul style = 'margin: 0; line-height: 19px;'>
                                     <li><a href = 'https://jquery.com' target = '_blank'>jQuery</a> - v3.3.1 - UI manipulation</li>
                                     <li><a href = 'https://github.com/anuvgupta/block.js' target = '_blank'>block.js</a> - v3.0 - UI development and design</li>
