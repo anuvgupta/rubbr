@@ -658,7 +658,7 @@ app
                                 <ul style = 'margin: 0; line-height: 19px;'>
                                     <li><a href = 'https://jquery.com' target = '_blank'>jQuery</a> - v3.3.1 - UI manipulation</li>
                                     <li><a href = 'https://github.com/anuvgupta/block.js' target = '_blank'>block.js</a> - v3.0 - UI development and design</li>
-                                    <li><a href = 'https://socket.io/' target = '_blank'>socket.io</a> - v1.1 - WebSocket server</li>
+                                    <li><a href = 'https://socket.io/' target = '_blank'>socket.io</a> - v2.2.0 - WebSocket server</li>
                                 </ul>
                             `
                     title t5
