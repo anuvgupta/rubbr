@@ -1,0 +1,13 @@
+{
+  "name": "rubbr-sio",
+  "version": "1.0.0",
+  "description": "rubbr (multiplayer game) made using socket.io",
+  "main": "rubbr.js",
+  "author": "Anuv Gupta",
+  "dependencies": {
+    "express": "^4.16.4",
+    "is-alphanumeric": "^1.0.0",
+    "random-number": "0.0.9",
+    "socket.io": "^2.2.0"
+  }
+}

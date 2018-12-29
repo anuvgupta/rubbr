@@ -350,10 +350,10 @@ app
                         opacity 0.82
                 :click
                     {
-                        if (app.pocket.online()) {
+                        if (app.socket.connected) {
                             var val = block.sibling('username').node().value;
                             if (!Block.is.unset(val) && Block.is.str(val) && val.trim() != '') {
-                                app.pocket.send('login', val, false);
+                                app.socket.emit('login', val, false);
                             }
                         }
                     }
@@ -444,10 +444,10 @@ app
                         opacity 0.82
                 :click
                     {
-                        if (app.pocket.online()) {
+                        if (app.socket.connected) {
                             var val = app.objects.player.n;
                             if (!Block.is.unset(val) && Block.is.str(val) && val.trim() != '') {
-                                app.pocket.send('login', val, true);
+                                app.socket.emit('login', val, true);
                             }
                         }
                     }
@@ -604,7 +604,9 @@ app
                     paragraph p1
                         html
                             `
-                                <span style = 'font-weight: bold; font-size: 17px;'>rubbr</span> is an online multiplayer game with cars and... well basically <a href = 'http://agar.io'>agar.io</a> with cars.
+                                <span style = 'font-weight: bold; font-size: 17px;'>rubbr</span> is an online multiplayer game with cars and... well basically <a href = 'http://agar.io'>agar.io</a> with cars.<br/>
+                                <br/>
+                                <i>Update 2018: rubbr now runs on socket.io instead of pocketjs. Play the pocketjs version </i><a href = 'http://pjs.rubbr.anuv.me/'>here</a>.
                             `
                     title t2
                         val instructions
@@ -643,20 +645,20 @@ app
                     paragraph p3
                         html
                             `
-                                At an internship in 2016, kids at our workshop were obsessed with the online games <a href = 'http://agar.io'>agar.io</a>, <a href = 'http://slither.io'>slither.io</a>, and even <a href = 'http://diep.io'>diep.io</a>. So, my friend and I decided to make the "next big .io game," and decided to appeal to gamers' appreciation for crashing cars and feeling like they're gaining money. And thus, the idea for <b>rubbr</b> was born. He started making it by changing the mechanics and graphics of an agar clone, so I challenged him - I would make the entire thing from scratch. So while he finished his version in two weeks, I decided not to use an agar clone, and not even use Node.js. That summer I created <a href = 'https://github.com/anuvgupta/pocketjs'>pocketjs</a>, my own PHP WebSocket implementation. Meanwhile, we put his version on Heroku, and you can play it at <a href = 'http://rubbr.io'>rubbr.io</a> if it's still up. This summer, I decided to go back and use pocketjs to make my own version of rubbr; it's a little different, but you can check it out at <a href = 'http://rubbr.anuv.me'>rubbr.anuv.me</a> to play. I'll move it to <a href = 'http://rubbr.ml'>rubbr.ml</a> if I ever get that domain back.
+                                At an internship in 2016, kids at our workshop were obsessed with the online games <a href = 'http://agar.io'>agar.io</a>, <a href = 'http://slither.io'>slither.io</a>, and even <a href = 'http://diep.io'>diep.io</a>. So, my friend and I decided to make the "next big .io game," and decided to appeal to gamers' appreciation for crashing cars and feeling like they're gaining money. And thus, the idea for <b>rubbr</b> was born. He started making it by changing the mechanics and graphics of an agar clone, so I challenged him - I would make the entire thing from scratch. So while he finished his version in two weeks, I decided not to use an agar clone, and not even use Node.js. That summer I created <a href = 'https://github.com/anuvgupta/pocketjs'>pocketjs</a>, my own PHP WebSocket implementation. Meanwhile, we put his version on Heroku, and you can play it at <a href = 'http://rubbr.io'>rubbr.io</a> if it's still up. This summer (2017), I decided to go back and use pocketjs to make my own version of rubbr; it's a little different, but you can check it out at <a href = 'http://rubbr.anuv.me'>rubbr.anuv.me</a> to play. I'll move it to <a href = 'http://rubbr.ml'>rubbr.ml</a> if I ever get that domain back. Update: In winter 2018, I ported the game over to socket.io as an experiment.
                             `
                     title t4
                         val code
                     paragraph p4
                         html
                             `
-                                <b>rubbr</b> uses JavaScript WebSockets; the WebSocket server uses my own PHP WebSocket server library, pocketjs.
+                                <b>rubbr</b> uses JavaScript WebSockets; the WebSocket server used to use my own PHP WebSocket server library, pocketjs, but now uses socket.io.
                                 The code is located on <a href = 'http://github.com/anuvgupta/rubbr' target = '_blank'>GitHub</a>.<br/><br/>
-                                <b>Libraries Used</b>:<br/>
+                                <b>Extermanl Resources Used</b>:<br/>
                                 <ul style = 'margin: 0; line-height: 19px;'>
-                                    <li><a href = 'https://jquery.com' target = '_blank'>jQuery</a> - v1.12.4 - chessboard.js support</li>
+                                    <li><a href = 'https://jquery.com' target = '_blank'>jQuery</a> - v3.3.1 - UI manipulation</li>
                                     <li><a href = 'https://github.com/anuvgupta/block.js' target = '_blank'>block.js</a> - v3.0 - UI development and design</li>
-                                    <li><a href = 'https://github.com/anuvgupta/pocketjs' target = '_blank'>pocketjs</a> - v1.1 - WebSocket server</li>
+                                    <li><a href = 'https://socket.io/' target = '_blank'>socket.io</a> - v1.1 - WebSocket server</li>
                                 </ul>
                             `
                     title t5

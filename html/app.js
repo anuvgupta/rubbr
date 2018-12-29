@@ -1,15 +1,10 @@
 var app = {
     id: 0,
     block: Block('div', 'app'),
-    pocket: Pocket(),
-    server: {
-        url: document.domain,
-        script: 'rubbr.php',
-        port: (document.domain == 'rubbr.anuv.me' ? 8006 : 30000)
-    },
+    socket: null,
     connect: function () {
-        var pocket = app.pocket;
-        pocket.onClose(function () {
+        var socket = io();
+        socket.on('disconnect', function () {
             app.values.alive = false;
             app.block.child('overlays').css('display', 'none')
                 .sibling('dead').css('display', 'table').on('msg', {
@@ -19,7 +14,7 @@ var app = {
                     msg: 'disconnected'
                 }).css('display', 'none');
         });
-        pocket.bind('init', function (id, name, color, defaults) {
+        socket.on('init', function (id, name, color, defaults) {
             if (id == false && name == false && color == false && defaults == false) {
                 app.block.child('intro/div/message').on('revalue', {
                     value: 'invalid username'
@@ -48,7 +43,7 @@ var app = {
                 app.startSync(defaults['syncInterval']);
             }
         });
-        pocket.bind('position', function (x, y) {
+        socket.on('position', function (x, y) {
             if (x < app.objects.map.w / 2 - 1 && x > app.objects.map.w / -2 + 1) {
                 if (Math.abs(app.objects.player.x - x) > 2) {
                     app.objects.player.x = x;
@@ -71,7 +66,7 @@ var app = {
             // };
             // transition();
         });
-        pocket.bind('map', function (json) {
+        socket.on('map', function (json) {
             try {
                 var map = JSON.parse(json);
                 app.objects.player['n'] = map['users'][app.id]['n'];
@@ -87,7 +82,7 @@ var app = {
                 console.log(e);
             }
         });
-        pocket.bind('boost', function (val) {
+        socket.on('boost', function (val) {
             if (val == 0) {
                 console.log('cannot stack boosts');
             } else if (val == 1) {
@@ -102,7 +97,7 @@ var app = {
                 console.log('boost commenced - gate');
             }
         });
-        pocket.bind('data', function (money, kills, health, invulnerable) {
+        socket.on('data', function (money, kills, health, invulnerable) {
             app.block.child('overlays/overlay-money').data({
                 money: money
             }).sibling('overlay-kills').data({
@@ -112,7 +107,7 @@ var app = {
             });
             app.objects.player['i'] = invulnerable;
         });
-        pocket.bind('rankings', function (json) {
+        socket.on('rankings', function (json) {
             try {
                 var rankings = JSON.parse(json);
                 rankings.reverse();
@@ -124,7 +119,7 @@ var app = {
                 console.log(e);
             }
         });
-        pocket.bind('dead', function () {
+        socket.on('dead', function () {
             console.log('dead');
             app.values.alive = false;
             app.block.child('overlays').css('display', 'none')
@@ -132,25 +127,26 @@ var app = {
                     msg: 'you ran out of health'
                 });
         });
-        pocket.bind('rejoin', function () {
+        socket.on('rejoin', function () {
             app.values.alive = true;
             app.block.child('intro').css('display', 'none').sibling('dead').css('display', 'none').sibling('overlays').css('display', 'table');
         });
-        pocket.connect(app.server.url, app.server.port, app.server.script, false);
+        // socket.connect();
+        app.socket = socket;
     },
     startSync: function (interval) {
         var syncLoop;
         syncLoop = function () {
-            if (app.pocket.online() && app.values.alive) {
-                app.pocket.send('sync', app.objects.player.v.m, app.objects.player.v.d);
+            if (app.socket.connected && app.values.alive) {
+                app.socket.emit('sync', app.objects.player.v.m, app.objects.player.v.d);
             }
             setTimeout(syncLoop, interval);
         };
         syncLoop();
         $(document).keypress(function (e) {
             if (e.keyCode == 32) {
-                if (app.pocket.online()) {
-                    app.pocket.send('boost');
+                if (app.socket.connected) {
+                    app.socket.emit('boost');
                 }
             }
         });
@@ -171,7 +167,7 @@ var app = {
             mouse.y = e.pageY;
         });
         gameLoop = function () {
-            if (app.pocket.online() && app.values.alive) {
+            if (app.socket.connected && app.values.alive) {
                 var server = app.objects.server;
                 // place canvas in middle
                 var xOff = window.innerWidth / 2;
@@ -485,7 +481,7 @@ window.addEventListener('load', function () {
                         Block.queries();
                     });
                 }
-                console.log('connecting to pocket');
+                console.log('connecting to socket');
                 app.connect();
             });
         }, 'app', 'jQuery');
