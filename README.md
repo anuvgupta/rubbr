@@ -28,9 +28,9 @@ At an internship in 2016, kids at our workshop were obsessed with the online gam
 ## code
 rubbr uses JavaScript WebSockets; the WebSocket server uses my own PHP WebSocket server library, pocketjs.  
 &nbsp;  
-Libraries Used  
-&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;[jQuery](https://jquery.com/) - v1.12.4  
-&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;[block.js](https://github.com/anuvgupta/block.js) - v3.0 (also made by me)  
-&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;[pocketjs](https://github.com/anuvgupta/pocketjs) - v1.1 (also made by me)  
+External Resources Used  
+&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;[jQuery](https://jquery.com/) - v3.3.1 - UI manipulation 
+&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;[block.js](https://github.com/anuvgupta/block.js) - v3.0 - UI development and design 
+&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;[socket.io](https://socket.io) - v2.2.0 - WebSocket server
 
 *Original car icon courtesy of Laurence Willmott of [The Noun Project](https://thenounproject.com/)*   
