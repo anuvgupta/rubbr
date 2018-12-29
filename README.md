@@ -2,7 +2,7 @@
 An online multiplayer game with cars and... well basically [agar.io](http://agar.io) with cars.  
 *Hosted at: [rubbr.anuv.me](http://rubbr.anuv.me)*  
 &nbsp;  
-*Update 2018: rubbr now runs on socket.io instead of pocketjs. Play the pocketjs version* [here](http://pjs.rubbr.anuv.me).
+*Update 2018: rubbr now runs on socket.io instead of pocketjs. The pocketjs code lives in its own branch. Play the pocketjs version* [here](http://pjs.rubbr.anuv.me).
   
 ## instructions
  Visit [rubbr.anuv.me](http://rubbr.anuv.me) to play!
