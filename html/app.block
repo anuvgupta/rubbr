@@ -604,7 +604,9 @@ app
                     paragraph p1
                         html
                             `
-                                <span style = 'font-weight: bold; font-size: 17px;'>rubbr</span> is an online multiplayer game with cars and... well basically <a href = 'http://agar.io'>agar.io</a> with cars.
+                                <span style = 'font-weight: bold; font-size: 17px;'>rubbr</span> is an online multiplayer game with cars and... well basically <a href = 'http://agar.io'>agar.io</a> with cars.<br/>
+                                <br/>
+                                This is the pocketjs version.
                             `
                     title t2
                         val instructions
@@ -654,7 +656,7 @@ app
                                 The code is located on <a href = 'http://github.com/anuvgupta/rubbr' target = '_blank'>GitHub</a>.<br/><br/>
                                 <b>Libraries Used</b>:<br/>
                                 <ul style = 'margin: 0; line-height: 19px;'>
-                                    <li><a href = 'https://jquery.com' target = '_blank'>jQuery</a> - v1.12.4 - chessboard.js support</li>
+                                    <li><a href = 'https://jquery.com' target = '_blank'>jQuery</a> - v1.12.4 - UI manipulation</li>
                                     <li><a href = 'https://github.com/anuvgupta/block.js' target = '_blank'>block.js</a> - v3.0 - UI development and design</li>
                                     <li><a href = 'https://github.com/anuvgupta/pocketjs' target = '_blank'>pocketjs</a> - v1.1 - WebSocket server</li>
                                 </ul>

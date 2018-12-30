@@ -5,7 +5,7 @@ var app = {
     server: {
         url: document.domain,
         script: 'rubbr.php',
-        port: (document.domain == 'rubbr.anuv.me' ? 8006 : 30000)
+        port: (document.domain.includes('rubbr.anuv.me') || document.domain.includes('rubbr.ml') ? 8006 : 30000)
     },
     connect: function () {
         var pocket = app.pocket;
