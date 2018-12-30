@@ -1,11 +1,11 @@
 # rubbr
 An online multiplayer game with cars and... well basically [agar.io](http://agar.io) with cars.  
-*Hosted at: [rubbr.anuv.me](http://rubbr.anuv.me)*  
+*Hosted at: [rubbr.ml](http://rubbr.ml)*  
 &nbsp;  
-*Update 2018: rubbr now runs on socket.io instead of pocketjs. The pocketjs code lives in its own branch. Play the pocketjs version* [here](http://pjs.rubbr.anuv.me).
+*Update 2018: rubbr now runs on socket.io instead of pocketjs. The pocketjs code lives in its own branch. Play the pocketjs version* [here](http://pjs.rubbr.ml).
   
 ## instructions
- Visit [rubbr.anuv.me](http://rubbr.anuv.me) to play!
+ Visit [rubbr.ml](http://rubbr.ml) to play!
 
  1. Name - type a name (alphanumeric) and hit join - you will be assigned a color
  2. Controls - move the mouse around to move your car in different directions and at varying speeds
