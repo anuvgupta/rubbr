@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
 
 app.use(express.static('html'));
 
-var interval = 50;
+var interval = 25;
 var users = {};
 var money = [];
 var gates = [];
