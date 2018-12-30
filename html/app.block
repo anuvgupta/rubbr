@@ -606,7 +606,7 @@ app
                             `
                                 <span style = 'font-weight: bold; font-size: 17px;'>rubbr</span> is an online multiplayer game with cars and... well basically <a href = 'http://agar.io'>agar.io</a> with cars.<br/>
                                 <br/>
-                                <i>Update 2018: rubbr now runs on socket.io instead of pocketjs. Play the pocketjs version </i><a href = 'http://pjs.rubbr.anuv.me/'>here</a>.
+                                <i>Update 2018: rubbr now runs on socket.io instead of pocketjs. Play the pocketjs version </i><a href = 'http://pjs.rubbr.ml/'>here</a>.
                             `
                     title t2
                         val instructions
