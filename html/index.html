@@ -28,7 +28,12 @@
                 color: rgba(127, 196, 111, 0.95);
             }
         </style>
-        <script src="socket.io/socket.io.js"></script>
+        <script type = 'text/javascript'>
+            if (document.domain.includes('rubbr.anuv.me')) {
+                window.location = 'http://rubbr.ml/';
+            }
+        </script>
+        <script type = 'text/javascript' src = 'socket.io/socket.io.js'></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script type = 'text/javascript' src = 'js/block.js'></script>
         <script type = 'text/javascript' src = 'app.js'></script>
