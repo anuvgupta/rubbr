@@ -3,7 +3,7 @@ var app = {
     block: Block('div', 'app'),
     socket: null,
     connect: function () {
-        var socket = io();
+        var socket = io('http://' + document.domain + ':3001/');
         socket.on('disconnect', function () {
             app.values.alive = false;
             app.block.child('overlays').css('display', 'none')
