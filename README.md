@@ -3,6 +3,13 @@ An online multiplayer game with cars and... well basically [agar.io](http://agar
 *Hosted at: [rubbr.anuv.me](http://rubbr.anuv.me)*  
 &nbsp;  
 *Update 2018: rubbr now runs on socket.io instead of pocketjs. The pocketjs code lives in its own branch. Play the pocketjs version* [here](http://pjs.rubbr.anuv.me).
+
+## versions
+  - [rubbr.ml](http://rubbr.ml)/[rubbr.anuv.me](http://rubbr.anuv.me) – upgraded socket.io server
+  - [pjs.rubbr.ml](http://pjs.rubbr.ml)/[pjs.rubbr.anuv.me](http://pjs.rubbr.anuv.me) – legacy pocketjs server
+  - [io.rubbr.ml](http://io.rubbr.ml)/[io.rubbr.anuv.me](io.rubbr.anuv.me) – original agar.io clone concept
+    - [rubbr-io.herokuapp.com](http://rubbr-io.herokuapp.com) – alternate for current deployment
+    - [rubbr.io](http://rubbr.io)/[rubbr.herokuapp.com](http://rubbr.herokuapp.com) – original deployment
   
 ## instructions
  Visit [rubbr.anuv.me](http://rubbr.anuv.me) to play!
@@ -23,7 +30,7 @@ An online multiplayer game with cars and... well basically [agar.io](http://agar
 Have fun!
 
 ## inspiration
-At an internship in 2016, kids at our workshop were obsessed with the online games [agar.io](http://agar.io), [slither.io](http://slither.io), and even [diep.io](http://diep.io). So, my friend and I decided to make the "next big .io game," and decided to appeal to gamers' appreciation for crashing cars and feeling like they're gaining money. And thus, the idea for rubbr was born. He started making it by changing the mechanics and graphics of an agar clone, so I challenged him - I would make the entire thing from scratch. So while he finished his version in two weeks, I decided not to use an agar clone, and not even use Node.js. That summer I created [pocketjs](https://github.com/anuvgupta/pocketjs), my own PHP WebSocket implementation. Meanwhile, we put his version on Heroku, and you can play it at [rubbr.io](http://rubbr.io) if it's still up. This summer (2017), I decided to go back and use pocketjs to make my own version of rubbr; it's a little different, but you can check it out at [rubbr.anuv.me](http://rubbr.anuv.me) to play. I'll move it to [rubbr.ml](http://rubbr.ml) if I ever get that domain back. Update: In winter 2018, I ported the game over to socket.io as an experiment, which is now the offical version.
+At an internship in 2016, kids at our workshop were obsessed with the online games [agar.io](http://agar.io), [slither.io](http://slither.io), and even [diep.io](http://diep.io). So, my friend and I decided to make the "next big .io game," and decided to appeal to gamers' appreciation for crashing cars and feeling like they're gaining money. And thus, the idea for rubbr was born. He started making it by changing the mechanics and graphics of an agar clone, so I challenged him - I would make the entire thing from scratch. So while he finished his version in two weeks, I decided not to use an agar clone, and not even use Node.js. That summer I created [pocketjs](https://github.com/anuvgupta/pocketjs), my own PHP WebSocket implementation. Meanwhile, we put his version on Heroku, and you can play it at [rubbr.io](http://rubbr.io) or [io.rubbr.anuv.me](http://io.rubbr.anuv.me) if it's still up. This summer (2017), I decided to go back and use pocketjs to make my own version of rubbr; it's a little different, but you can check it out at [rubbr.anuv.me](http://rubbr.anuv.me) to play. I'll move it to [rubbr.ml](http://rubbr.ml) if I ever get that domain back. Update: In winter 2018, I ported the game over to socket.io as an experiment, which is now the offical version.
 
 ## code
 rubbr uses JavaScript WebSockets; the WebSocket server uses my own PHP WebSocket server library, pocketjs.  
