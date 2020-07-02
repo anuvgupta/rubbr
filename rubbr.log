@@ -1,0 +1,49 @@
+
+POCKET SERVER
+[SERVER] pocket created
+[SERVER] pocket listening on 172.26.2.9:8006
+[SERVER] waiting for connections...
+
+
+POCKET SERVER
+[SERVER] pocket created
+[SERVER] pocket listening on 172.26.2.9:8006
+[SERVER] waiting for connections...
+
+
+POCKET SERVER
+[SERVER] pocket created
+[SERVER] pocket listening on 172.26.2.9:8006
+[SERVER] waiting for connections...
+
+
+CLIENT CONNECTING: 
+[SERVER] client[0] 24.130.147.248 : 58526 connecting
+[SERVER] headers recieved | headers sent
+[SERVER] handshake complete - client connected
+
+[LOG] user[0] connected
+[LOG] user[0] is anuv
+[LOG] user[0] disconnected
+
+client[0] 24.130.147.248 : 58526 disconnected
+[ERROR] client 0 does not exist
+#0  Pocket->send(map, 0, {"users":[{"x":-1207.2455795712,"y":4.9536395461478,"v":{"m":73.71742983442,"d":1.7118871466907},"i":false,"n":"anuv","c":"black"}],"money":[{"x":1224,"y":323},{"x":513,"y":666},{"x":-292,"y":1206},{"x":13,"y":-905},{"x":-1183,"y":-302},{"x":1216,"y":-357},{"x":-1044,"y":794},{"x":254,"y":748},{"x":395,"y":-208},{"x":1286,"y":172},{"x":405,"y":-588},{"x":107,"y":1286},{"x":-527,"y":-1022},{"x":-768,"y":-494},{"x":1302,"y":694},{"x":944,"y":1056},{"x":914,"y":1456},{"x":251,"y":725},{"x":-278,"y":-1207},{"x":1291,"y":10},{"x":-38,"y":1036},{"x":1124,"y":388},{"x":591,"y":-823},{"x":-334,"y":-715},{"x":1170,"y":-519},{"x":928,"y":104},{"x":363,"y":-436},{"x":-80,"y":1307},{"x":13,"y":623},{"x":-658,"y":-156},{"x":-154,"y":-1184},{"x":-570,"y":863},{"x":274,"y":1151},{"x":117,"y":1466},{"x":1415,"y":-63},{"x":6,"y":-94},{"x":-497,"y":-341},{"x":-1176,"y":1333},{"x":1036,"y":-40},{"x":-853,"y":735},{"x":912,"y":-1396},{"x":-631,"y":-195},{"x":-361,"y":759},{"x":-359,"y":1122},{"x":-89,"y":454},{"x":-504,"y":1227},{"x":740,"y":396},{"x":619,"y":-456},{"x":77,"y":-734},{"x":-461,"y":21},{"x":673,"y":1015},{"x":1398,"y":-1295},{"x":-796,"y":-1248},{"x":-1432,"y":-1231},{"x":183,"y":-815},{"x":975,"y":-375},{"x":-740,"y":-1127},{"x":900,"y":369},{"x":1102,"y":-930},{"x":21,"y":-458},{"x":995,"y":987},{"x":-702,"y":265},{"x":-87,"y":1388},{"x":1279,"y":1460},{"x":-817,"y":-652},{"x":11,"y":1327},{"x":-1108,"y":-61},{"x":-1439,"y":-433},{"x":161,"y":-1400},{"x":-194,"y":-1126},{"x":-745,"y":-689},{"x":-91,"y":732},{"x":-346,"y":-602},{"x":-1116,"y":-714},{"x":-61,"y":375},{"x":298,"y":-536},{"x":-108,"y":1067},{"x":1199,"y":1275},{"x":985,"y":1007},{"x":1265,"y":-1303},{"x":-1116,"y":-195},{"x":-1446,"y":-753},{"x":1215,"y":-1415},{"x":-274,"y":110},{"x":-1344,"y":-1380},{"x":250,"y":-619},{"x":-599,"y":-1252},{"x":837,"y":526},{"x":-383,"y":1192},{"x":1282,"y":1027},{"x":96,"y":110},{"x":-980,"y":1459},{"x":-294,"y":-1251},{"x":1263,"y":-780},{"x":1226,"y":1057},{"x":-612,"y":-1360},{"x":-608,"y":-588},{"x":-642,"y":-864},{"x":-532,"y":1112},{"x":512,"y":-406},{"x":1203,"y":-708},{"x":446,"y":-866},{"x":-489,"y":-187},{"x":1130,"y":598},{"x":-466,"y":941},{"x":155,"y":1101},{"x":-420,"y":646},{"x":1089,"y":757},{"x":865,"y":882},{"x":1448,"y":621},{"x":469,"y":-634},{"x":731,"y":1332},{"x":249,"y":-1382},{"x":-1003,"y":1188},{"x":1201,"y":980},{"x":-688,"y":934},{"x":-1198,"y":1228},{"x":-1403,"y":-217},{"x":-429,"y":1197},{"x":-1089,"y":576},{"x":668,"y":536},{"x":206,"y":-1222},{"x":-195,"y":641},{"x":1005,"y":-894},{"x":-764,"y":983},{"x":1197,"y":1176},{"x":-1122,"y":458},{"x":1037,"y":597},{"x":547,"y":-1436},{"x":116,"y":761},{"x":1015,"y":1096},{"x":-260,"y":1287},{"x":854,"y":-192},{"x":-400,"y":-1045},{"x":137,"y":-73},{"x":1001,"y":-1269},{"x":-953,"y":-264},{"x":-1020,"y":229},{"x":1032,"y":1455},{"x":806,"y":-1202},{"x":968,"y":533},{"x":1444,"y":1316},{"x":-480,"y":1011},{"x":443,"y":-1404},{"x":1045,"y":-713},{"x":344,"y":589},{"x":-1087,"y":-1386},{"x":406,"y":1238},{"x":-108,"y":-1465},{"x":-1278,"y":896}],"gates":[{"x":-11,"y":1055},{"x":971,"y":446},{"x":-479,"y":-1232},{"x":-651,"y":-867},{"x":-1245,"y":-1239}],"lives":[{"x":-712,"y":1030},{"x":602,"y":-738},{"x":876,"y":-1348},{"x":-1198,"y":-152},{"x":-1282,"y":1317},{"x":606,"y":532},{"x":436,"y":989},{"x":616,"y":-628},{"x":756,"y":-963},{"x":-622,"y":949}]}) called at [/var/www/rubbr-pjs/rubbr.php:196]
+#1  {closure}() called at [/var/www/rubbr-pjs/pocket.php:301]
+#2  Pocket->onRun() called at [/var/www/rubbr-pjs/pocket.php:131]
+#3  Pocket->open() called at [/var/www/rubbr-pjs/rubbr.php:445]
+[ERROR] client 0 does not exist
+#0  Pocket->send(data, 0, 7, 0, 100, ) called at [/var/www/rubbr-pjs/rubbr.php:351]
+#1  {closure}() called at [/var/www/rubbr-pjs/pocket.php:301]
+#2  Pocket->onRun() called at [/var/www/rubbr-pjs/pocket.php:131]
+#3  Pocket->open() called at [/var/www/rubbr-pjs/rubbr.php:445]
+[ERROR] client 0 does not exist
+#0  Pocket->send(position, 0, -1207.2455795712, 4.9536395461478) called at [/var/www/rubbr-pjs/rubbr.php:352]
+#1  {closure}() called at [/var/www/rubbr-pjs/pocket.php:301]
+#2  Pocket->onRun() called at [/var/www/rubbr-pjs/pocket.php:131]
+#3  Pocket->open() called at [/var/www/rubbr-pjs/rubbr.php:445]
+[ERROR] client 0 does not exist
+#0  Pocket->send(rankings, 0, [{"id":0,"kills":0,"money":7,"name":"anuv"}]) called at [/var/www/rubbr-pjs/rubbr.php:369]
+#1  {closure}() called at [/var/www/rubbr-pjs/pocket.php:301]
+#2  Pocket->onRun() called at [/var/www/rubbr-pjs/pocket.php:131]
+#3  Pocket->open() called at [/var/www/rubbr-pjs/rubbr.php:445]

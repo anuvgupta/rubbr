@@ -1,0 +1,1 @@
+[Fri Dec 27 23:24:20.046853 2019] [:error] [pid 9369] [client 127.0.0.1:50620] script '/var/www/rubbr/html/xmlrpc.php' not found or unable to stat
