@@ -1,0 +1,46 @@
+Error: Cannot find module 'express'
+Require stack:
+- /home/ubuntu/dash/apps/rubbr-sio/rubbr/rubbr.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:965:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:61:29)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/home/ubuntu/dash/apps/rubbr-sio/rubbr/rubbr.js:4:17)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/home/ubuntu/dash/apps/rubbr-sio/rubbr/rubbr.js' ]
+}
+Error: Cannot find module 'express'
+Require stack:
+- /home/ubuntu/dash/apps/rubbr-sio/rubbr/rubbr.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:965:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:61:29)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/home/ubuntu/dash/apps/rubbr-sio/rubbr/rubbr.js:4:17)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+    at Module.load (internal/modules/cjs/loader.js:985:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+    at Object.<anonymous> (/usr/local/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+    at Module._compile (internal/modules/cjs/loader.js:1137:30) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/home/ubuntu/dash/apps/rubbr-sio/rubbr/rubbr.js' ]
+}
+listening on *:3002
+user[7IPWfWYa6cV35JalAAAA] connected
+user[7IPWfWYa6cV35JalAAAA] disconnected
+user[0feveh-i51kWdL7FAAAB] connected
+user[0feveh-i51kWdL7FAAAB] disconnected
+user[c36PBvf1nyKVw_MzAAAC] connected
+user[wgaDd1iFxsrQHRzGAAAD] connected
+user[c36PBvf1nyKVw_MzAAAC] is anuv
+user[c36PBvf1nyKVw_MzAAAC] disconnected
+user[_2mjt8QVs-VDYkqDAAAE] connected
+user[wgaDd1iFxsrQHRzGAAAD] disconnected
+user[_2mjt8QVs-VDYkqDAAAE] disconnected
+listening on *:3002
+listening on *:3002
