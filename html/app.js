@@ -5,8 +5,8 @@ var app = {
     server: {
         url: document.domain === 'localhost'
             ? 'localhost'
-            : 'pjs.anuv.me',
-        script: 'rubbr-pjs',
+            : 'pjs.rubbr.anuv.me',
+        script: 'socket',
         secure: location.protocol === 'https:',
         port: location.protocol === 'https:' ? 443 : 80
     },
