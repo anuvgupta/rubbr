@@ -7,9 +7,8 @@ An online multiplayer game with cars and... well basically [agar.io](http://agar
 *Update 2018: rubbr now runs on socket.io instead of pocketjs. The pocketjs code lives in its own branch. Play the pocketjs version* [here](http://pjs.rubbr.anuv.me).
   - [rubbr.ml](http://rubbr.ml)/[rubbr.anuv.me](http://rubbr.anuv.me) – upgraded socket.io server
   - [pjs.rubbr.ml](http://pjs.rubbr.ml)/[pjs.rubbr.anuv.me](http://pjs.rubbr.anuv.me) – legacy pocketjs server
-  - [io.rubbr.ml](http://io.rubbr.ml)/[io.rubbr.anuv.me](io.rubbr.anuv.me) – original agar.io clone concept
-    - [rubbr-io.herokuapp.com](https://rubbr-io.herokuapp.com) – alternate for current deployment
-    - [rubbr.io](http://rubbr.io)/[rubbr.herokuapp.com](https://rubbr.herokuapp.com) – original deployment
+  - [io.rubbr.anuv.me](io.rubbr.anuv.me) – original agar.io clone concept
+    - [rubbr.herokuapp.com](https://rubbr.herokuapp.com) – original deployment
   
 ## instructions
  Visit [rubbr.anuv.me](http://rubbr.anuv.me) to play!
