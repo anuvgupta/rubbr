@@ -4,12 +4,12 @@ var app = {
     socket: null,
     connect: function () {
         var socket = io(
-            (location.protocol === 'https:'
+            document.domain == 'localhost' ? ('ws://localhost:3033') : ((location.protocol === 'https:'
                 ? 'https://'
                 : 'http://') +
             document.domain +
             (location.protocol === 'https:' ? ':443' : ':80') +
-            '/'
+            '/')
         );
         socket.on('disconnect', function () {
             app.values.alive = false;
