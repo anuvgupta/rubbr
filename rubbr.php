@@ -1,8 +1,8 @@
 <?php
 include('pocket.php');
 
-$ip = $argv[2];
-$port = $argv[3];
+$ip = getenv('IP', false) ? getenv('IP') : $argv[2];
+$port = getenv('PORT_SCK', false) ? getenv('PORT_SCK') : $argv[3];
 $pocket = new Pocket($ip, $port, 20, 50);
 $pocket->setOpt('kick-bad-data', false);
 
