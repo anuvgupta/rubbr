@@ -1,4 +1,5 @@
-const port = 3033;
+const port = parseInt(process.env.hasOwnProperty('PORT') ? process.env.PORT : (3033));
+
 
 const http = require('http');
 const express = require('express');
